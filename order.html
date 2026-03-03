@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Order History</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-dark">
+
+<div class="navbar">
+    <div class="logo">FoodDelivery</div>
+
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="order.html">Order History</a>
+        <a href="track.html">Track Order</a>
+        <a href="contact.html">Contact</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="#" class="logout-btn" onclick="logout()">Logout</a>
+    </div>
+</div>
+
+<!-- PAGE CONTENT -->
+<section class="order-section">
+
+<h1 class="page-title">Your Order History 📦</h1>
+
+<div id="history" class="order-history-container"></div>
+
+</section>
+
+<footer class="main-footer">
+    <p>© 2026 Food Delivery | Designed by Vikas Naregal</p>
+</footer>
+
+<script>
+
+let currentUser = localStorage.getItem("currentUser");
+let data = JSON.parse(localStorage.getItem(currentUser + "_orders")) || [];
+
+let output = "";
+
+if(data.length === 0){
+    output = "<p class='no-orders'>No orders placed yet.</p>";
+} else {
+
+data.forEach(function(order, index){
+
+output += `
+<div class="order-card">
+    <h3>Order ${index+1}</h3>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Qty</th>
+        </tr>
+`;
+
+order.forEach(function(item){
+output += `
+        <tr>
+            <td>${item.name}</td>
+            <td>₹${item.price}</td>
+            <td>${item.qty}</td>
+        </tr>
+`;
+});
+
+output += `
+    </table>
+</div>
+`;
+
+});
+}
+
+document.getElementById("history").innerHTML = output;
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

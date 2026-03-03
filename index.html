@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-body">
+
+<div class="auth-container">
+
+    <!-- LOGIN FORM -->
+    <div id="loginBox" class="auth-card">
+        <h2>Food Ordering Login</h2>
+
+        <input type="text" id="loginUser" placeholder="Enter Username">
+        <input type="password" id="loginPass" placeholder="Enter Password">
+
+        <button onclick="login()">Login</button>
+
+        <p>New user?</p>
+        <button class="secondary-btn" onclick="showRegister()">Register</button>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div id="registerBox" class="auth-card" style="display:none;">
+        <h2>Create Account</h2>
+
+        <input type="text" id="regUser" placeholder="Enter Username">
+        <input type="password" id="regPass" placeholder="Enter Password">
+
+        <button onclick="register()">Register</button>
+
+        <button class="secondary-btn" onclick="showLogin()">Back to Login</button>
+    </div>
+
+</div>
+
+<script>
+function showRegister(){
+    document.getElementById("loginBox").style.display="none";
+    document.getElementById("registerBox").style.display="block";
+}
+
+function showLogin(){
+    document.getElementById("registerBox").style.display="none";
+    document.getElementById("loginBox").style.display="block";
+}
+
+function register(){
+    let user = document.getElementById("regUser").value;
+    let pass = document.getElementById("regPass").value;
+
+    if(user && pass){
+        localStorage.setItem(user, pass);
+        alert("Registration Successful!");
+        showLogin();
+    } else {
+        alert("Fill all fields");
+    }
+}
+
+function login(){
+    let user = document.getElementById("loginUser").value;
+    let pass = document.getElementById("loginPass").value;
+
+    let storedPass = localStorage.getItem(user);
+
+    if(storedPass === pass){
+        localStorage.setItem("currentUser", user);
+        window.location.href = "home.html";
+    } else {
+        alert("Invalid Username or Password");
+    }
+}
+</script>
+
+</body>
+</html>

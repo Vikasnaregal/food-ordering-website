@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Feedback</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-dark">
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">FoodDelivery</div>
+
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="order.html">Order History</a>
+        <a href="track.html">Track Order</a>
+        <a href="contact.html">Contact</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="#" class="logout-btn" onclick="logout()">Logout</a>
+    </div>
+</div>
+
+<!-- FEEDBACK SECTION -->
+<section class="feedback-section">
+
+<h1 class="page-title">We Value Your Feedback ⭐</h1>
+
+<div class="feedback-container">
+
+    <div class="feedback-card">
+        <h3>Rate Your Experience</h3>
+
+        <!-- STAR RATING -->
+        <div class="star-rating">
+            <span onclick="rate(1)">★</span>
+            <span onclick="rate(2)">★</span>
+            <span onclick="rate(3)">★</span>
+            <span onclick="rate(4)">★</span>
+            <span onclick="rate(5)">★</span>
+        </div>
+
+        <textarea placeholder="Write your feedback here..."></textarea>
+
+        <button onclick="submitFeedback()">Submit Feedback</button>
+    </div>
+
+</div>
+
+</section>
+
+<footer class="main-footer">
+    <p>© 2026 Food Delivery | Designed by Vikas Naregal</p>
+</footer>
+
+<script>
+function rate(stars){
+    let allStars = document.querySelectorAll(".star-rating span");
+    allStars.forEach((star,index)=>{
+        if(index < stars){
+            star.classList.add("active-star");
+        } else {
+            star.classList.remove("active-star");
+        }
+    });
+}
+
+function submitFeedback(){
+    alert("Thank you for your feedback! 😊");
+}
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

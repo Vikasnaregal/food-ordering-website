@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-dark">
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">FoodDelivery</div>
+
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="order.html">Order History</a>
+        <a href="track.html">Track Order</a>
+        <a href="contact.html">Contact</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="#" class="logout-btn" onclick="logout()">Logout</a>
+    </div>
+</div>
+<!-- MENU SECTION -->
+<section class="menu-section">
+
+<h1 class="page-title">Explore Our Menu 🍽</h1>
+
+<!-- BURGERS -->
+<h2 class="section-title">Burgers</h2>
+<div class="food-container">
+
+<div class="food-item">
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Cheese Burger">
+<p class="price">₹150</p>
+<button onclick="addToCart('Cheese Burger',150)">ADD</button>
+</div>
+
+<div class="food-item">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Chicken Burger">
+<h3>Chicken Burger</h3>
+<p class="price">₹180</p>
+<button onclick="addToCart('Chicken Burger',180)">ADD</button>
+</div>
+
+</div>
+
+<!-- PIZZAS -->
+<h2 class="section-title">Pizzas</h2>
+<div class="food-container">
+
+<div class="food-item">
+<<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591" alt="Veg Pizza"><h3>Veg Pizza</h3>
+<p class="price">₹300</p>
+<button onclick="addToCart('Veg Pizza',300)">ADD</button>
+</div>
+
+<div class="food-item">
+<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="Paneer Pizza">
+<h3>Paneer Pizza</h3>
+<p class="price">₹350</p>
+<button onclick="addToCart('Paneer Pizza',350)">ADD</button>
+</div>
+
+</div>
+
+<!-- DRINKS -->
+<h2 class="section-title">Drinks</h2>
+<div class="food-container">
+
+<div class="food-item">
+<img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80" alt="Cold Coffee"><h3>Cold Coffee</h3>
+<p class="price">₹180</p>
+<button onclick="addToCart('Cold Coffee',180)">ADD</button>
+</div>
+
+<div class="food-item">
+<img src="https://images.unsplash.com/photo-1581636625402-29b2a704ef13" alt="Pepsi">
+<h3>Pepsi</h3>
+<p class="price">₹60</p>
+<button onclick="addToCart('Pepsi',60)">ADD</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- MINI CART -->
+<div id="miniCart" class="mini-cart" onclick="showCart()">
+🛒 Your Cart (Click to View)
+</div>
+
+<!-- CART POPUP -->
+<!-- CART POPUP -->
+<div id="cartPopup" class="popup">
+
+<div class="cart-header">
+    <h3>🛒 Your Cart</h3>
+    <span class="close-btn" onclick="hideCart()">✖</span>
+</div>
+
+<div class="cart-body">
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody id="cartItems"></tbody>
+    </table>
+</div>
+
+<div class="cart-footer">
+    <p id="cgst"></p>
+    <p id="sgst"></p>
+    <h4 id="total"></h4>
+
+    <button class="place-btn" onclick="placeOrder()">Place Order</button>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+    <p>© 2026 Food Delivery | Designed by Vikas Naregal</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
